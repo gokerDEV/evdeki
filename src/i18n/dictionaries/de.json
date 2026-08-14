@@ -1,0 +1,96 @@
+{
+  "common": {
+    "loading": "Laden...",
+    "loadMore": "Mehr laden",
+    "close": "Schließen",
+    "back": "Zurück",
+    "readMore": "Weiterlesen",
+    "noImage": "Kein Bild",
+    "viewAll": "Alle ansehen"
+  },
+  "post": {
+    "by": "Von",
+    "publishedOn": "Veröffentlicht am",
+    "noPosts": "Noch keine Beiträge gefunden.",
+    "noTags": "Keine Schlagwörter verfügbar.",
+    "home": "Startseite",
+    "news": "Nachrichten",
+    "tags": "Schlagwörter",
+    "readOnSubstack": "Auf Substack lesen",
+    "minRead": "Min. Lesezeit"
+  },
+  "nav": {
+    "toggleMenu": "Menü umschalten",
+    "changeLanguage": "Sprache ändern",
+    "getDirections": "Route berechnen",
+    "contactUs": "Kontaktiere uns",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
+  },
+  "footer": {
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "developedByPrefix": "Entwickelt mit",
+    "developedByTemplate": "uyguLama Substack template",
+    "developedBySuffix1": "",
+    "developedBySuffix2": ""
+  },
+  "posts": {
+    "title": "Nachrichten & Ankündigungen",
+    "description": "Hier finden Sie alle aktuellen Entwicklungen, Nachrichten und Ankündigungen."
+  },
+  "tags": {
+    "latestUpdates": "Neueste Updates zum Tag \"{tag}\"."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite wurde möglicherweise entfernt, umbenannt oder ist vorübergehend nicht erreichbar.",
+    "returnHome": "Zur Startseite zurückkehren"
+  },
+  "newsCarousel": {
+    "title": "Nachrichten & Ankündigungen",
+    "description": "Bleiben Sie auf dem Laufenden mit unseren neuesten Updates.",
+    "error": "Der Newsfeed kann derzeit nicht geladen werden."
+  },
+  "hero": {
+    "badge": "Ihr Partner für digitale Transformation",
+    "title": "Technologielösungen, die die Zukunft gestalten",
+    "description": "Wir bieten nachhaltige und innovative Softwarelösungen, die Ihre Geschäftsprozesse verbessern. Wir verfolgen und implementieren die neuesten Entwicklungen in der Technologiewelt für Sie.",
+    "getDirections": "Route berechnen",
+    "aboutUs": "Über uns"
+  },
+  "contactForm": {
+    "nameLabel": "Vollständiger Name",
+    "namePlaceholder": "Ihr Vor- und Nachname",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "beispiel@firma.com",
+    "phoneLabel": "Telefon",
+    "phonePlaceholder": "+49 XXX XXX XXXX",
+    "messageLabel": "Nachricht",
+    "messagePlaceholder": "Wie können wir Ihnen helfen?",
+    "submitButton": "Senden",
+    "submittingButton": "Wird gesendet...",
+    "successMessage": "Ihre Nachricht wurde erfolgreich gesendet!",
+    "errorMessage": "Ein Fehler ist aufgetreten, bitte versuchen Sie es erneut."
+  },
+  "contact": {
+    "title": "Kontaktiere uns",
+    "subtitle": "Kontaktiere uns",
+    "description": "Sie können uns für Ihre Projekte und technologischen Bedürfnisse kontaktieren. Unser Team wird sich so schnell wie möglich bei Ihnen melden.",
+    "address": "Adresse",
+    "email": "E-Mail",
+    "phone": "Telefon"
+  },
+  "services": {
+    "badge": "Alle Dienste",
+    "title": "Maßgeschneiderte Lösungen für Ihr digitales Wachstum"
+  },
+  "templates": {
+    "badge": "Website-Lösungspakete",
+    "title": "Unsere fertigen Lösungen",
+    "itemTitle": "Substack Vorlage",
+    "itemDesc": "Ein Website-Lösungspaket, mit dem Sie Ihre Inhalte mit Substack verwalten können.",
+    "contactPre": "Für Website-Anforderungen können Sie uns über den",
+    "contactLink": "Kontaktbereich",
+    "contactPost": "erreichen."
+  }
+}

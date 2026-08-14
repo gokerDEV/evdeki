@@ -1,0 +1,139 @@
+{
+  "$schema": "../lib/config/site.schema.ts",
+  "schemaVersion": 2,
+  "i18n": {
+    "defaultLocale": "en",
+    "locales": {
+      "tr": {
+        "enabled": true,
+        "label": "Türkçe",
+        "htmlLang": "tr",
+        "intlLocale": "tr-TR",
+        "openGraphLocale": "tr_TR",
+        "direction": "ltr"
+      },
+      "en": {
+        "enabled": true,
+        "label": "English",
+        "htmlLang": "en",
+        "intlLocale": "en-US",
+        "openGraphLocale": "en_US",
+        "direction": "ltr"
+      },
+      "de": {
+        "enabled": true,
+        "label": "Deutsch",
+        "htmlLang": "de",
+        "intlLocale": "de-DE",
+        "openGraphLocale": "de_DE",
+        "direction": "ltr"
+      }
+    }
+  },
+  "shared": {
+    "url": "https://example.com",
+    "substack": "https://uygulama.substack.com",
+    "web3formsAccessKey": "your-web3forms-access-key-here",
+    "socials": {
+      "twitter": "https://twitter.com/example",
+      "linkedin": "https://linkedin.com/company/example",
+      "instagram": "https://instagram.com/example",
+      "github": "https://github.com/example",
+      "substack": "https://example.substack.com"
+    },
+    "contact": {
+      "address": "123 Main Street, Suite 400, New York, NY 10001",
+      "email": "info@example.com",
+      "phone": "+1 (555) 123-4567",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000.315053229648!2d26.583090076535565!3d41.663599571263434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sExample!5e0!3m2!1sen!2sus!4v1717835848564!5m2!1sen!2sus"
+    }
+  },
+  "sources": {
+    "substack": {
+      "pages": {
+        "about": {
+          "tr": "hakkmzda",
+          "en": "about-us",
+          "de": "ueber-uns"
+        }
+      },
+      "tags": {
+        "tr": ["haberler"],
+        "en": ["news"],
+        "de": ["nachrichten"]
+      }
+    }
+  },
+  "content": {
+    "siteName": {
+      "tr": "YourSite",
+      "en": "YourSite",
+      "de": "YourSite"
+    },
+    "description": {
+      "tr": "YourSite: Gelişmiş Teknoloji Çözümleri",
+      "en": "YourSite: Advanced Technology Solutions",
+      "de": "YourSite: Fortschrittliche Technologielösungen"
+    },
+    "navigation": {
+      "header": [
+        {
+          "tr": {
+            "label": "Haberler",
+            "href": "tag:haberler"
+          },
+          "en": {
+            "label": "News",
+            "href": "tag:news"
+          },
+          "de": {
+            "label": "Nachrichten",
+            "href": "tag:nachrichten"
+          }
+        },
+        {
+          "tr": {
+            "label": "Hakkında",
+            "href": "#about"
+          },
+          "en": {
+            "label": "About",
+            "href": "#about"
+          },
+          "de": {
+            "label": "Über uns",
+            "href": "#about"
+          }
+        },
+        {
+          "tr": {
+            "label": "Hizmetler",
+            "href": "#services"
+          },
+          "en": {
+            "label": "Services",
+            "href": "#services"
+          },
+          "de": {
+            "label": "Dienste",
+            "href": "#services"
+          }
+        },
+        {
+          "tr": {
+            "label": "İletişim",
+            "href": "#contact"
+          },
+          "en": {
+            "label": "Contact",
+            "href": "#contact"
+          },
+          "de": {
+            "label": "Kontakt",
+            "href": "#contact"
+          }
+        }
+      ]
+    }
+  }
+}

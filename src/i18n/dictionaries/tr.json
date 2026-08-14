@@ -1,0 +1,96 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "loadMore": "Daha fazla yükle",
+    "close": "Kapat",
+    "back": "Geri",
+    "readMore": "Devamını oku",
+    "noImage": "Görsel yok",
+    "viewAll": "Tümünü gör"
+  },
+  "post": {
+    "by": "Yazar",
+    "publishedOn": "Yayınlanma tarihi",
+    "noPosts": "Henüz yazı bulunmamaktadır.",
+    "noTags": "Henüz etiket bulunmamaktadır.",
+    "home": "Ana Sayfa",
+    "news": "Haberler",
+    "tags": "Etiketler",
+    "readOnSubstack": "Substack'te Oku",
+    "minRead": "dakika okuma"
+  },
+  "nav": {
+    "toggleMenu": "Menüyü Aç/Kapat",
+    "changeLanguage": "Dili Değiştir",
+    "getDirections": "Yol Tarifi Al",
+    "contactUs": "Bize Ulaşın",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat"
+  },
+  "footer": {
+    "allRightsReserved": "Tüm hakları saklıdır.",
+    "developedByPrefix": "",
+    "developedByTemplate": "uyguLama Substack template",
+    "developedBySuffix1": "ile",
+    "developedBySuffix2": "geliştirilmiştir."
+  },
+  "posts": {
+    "title": "Haberler & Duyurular",
+    "description": "Tüm güncel gelişmelere, haberlere ve duyurulara buradan ulaşabilirsiniz."
+  },
+  "tags": {
+    "latestUpdates": "\"{tag}\" etiketi ile ilgili son güncellemeler."
+  },
+  "notFound": {
+    "title": "Sayfa Bulunamadı",
+    "description": "Aradığınız sayfa kaldırılmış, adı değiştirilmiş veya geçici olarak kullanılamıyor olabilir.",
+    "returnHome": "Ana Sayfaya Dön"
+  },
+  "newsCarousel": {
+    "title": "Haberler & Duyurular",
+    "description": "En son güncellemelerimizden haberdar olun.",
+    "error": "Haber akışı şu anda yüklenemiyor."
+  },
+  "hero": {
+    "badge": "Dijital Dönüşüm Ortağınız",
+    "title": "Geleceği Şekillendiren Teknoloji Çözümleri",
+    "description": "İş süreçlerinizi iyileştiren sürdürülebilir ve yenilikçi yazılım çözümleri sunuyoruz. Sizin için teknoloji dünyasındaki gelişmeleri takip ediyor ve uyguluyoruz.",
+    "getDirections": "Yol Tarifi Al",
+    "aboutUs": "Hakkımızda"
+  },
+  "contactForm": {
+    "nameLabel": "Ad Soyad",
+    "namePlaceholder": "Adınız ve Soyadınız",
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "ornek@sirket.com",
+    "phoneLabel": "Telefon",
+    "phonePlaceholder": "05XX XXX XX XX",
+    "messageLabel": "Mesaj",
+    "messagePlaceholder": "Size nasıl yardımcı olabiliriz?",
+    "submitButton": "Gönder",
+    "submittingButton": "Gönderiliyor...",
+    "successMessage": "Mesajınız başarıyla gönderildi!",
+    "errorMessage": "Bir hata oluştu, lütfen tekrar deneyin."
+  },
+  "contact": {
+    "title": "Bize Ulaşın",
+    "subtitle": "Bize Ulaşın",
+    "description": "Projeleriniz ve teknolojik ihtiyaçlarınız için bizimle iletişime geçebilirsiniz. Ekibimiz en kısa sürede size geri dönüş yapacaktır.",
+    "address": "Adres",
+    "email": "E-posta",
+    "phone": "Telefon"
+  },
+  "services": {
+    "badge": "Tüm Hizmetler",
+    "title": "Dijital Büyümeniz İçin Özel Çözümler"
+  },
+  "templates": {
+    "badge": "Web Sitesi Çözüm Paketleri",
+    "title": "Hazır Çözümlerimiz",
+    "itemTitle": "Substack Şablonu",
+    "itemDesc": "İçeriğinizi Substack ile yönetmenizi sağlayan bir web sitesi çözüm paketi.",
+    "contactPre": "Her türlü web sitesi ihtiyacınız için",
+    "contactLink": "iletişim",
+    "contactPost": "bölümünden bize ulaşabilirsiniz."
+  }
+}

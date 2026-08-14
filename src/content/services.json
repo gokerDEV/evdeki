@@ -1,0 +1,44 @@
+[
+  {
+    "id": "software-dev",
+    "title": "Custom Software Development",
+    "description": "We build scalable, secure, and tailored enterprise software solutions for your needs.",
+    "icon": "Code",
+    "tags": ["Frontend Development", "Backend Development", "API Integration"]
+  },
+  {
+    "id": "digital-trans",
+    "title": "Digital Transformation",
+    "description": "We digitize your business processes to increase efficiency and reduce costs.",
+    "icon": "Workflow",
+    "tags": ["Process Analysis", "Automation", "Strategy Development"]
+  },
+  {
+    "id": "cloud",
+    "title": "Cloud Solutions",
+    "description": "We ensure continuous availability and security of your data by building reliable cloud infrastructures.",
+    "icon": "Cloud",
+    "tags": ["AWS", "Azure", "Server Management"]
+  },
+  {
+    "id": "mobile",
+    "title": "Mobile App Development",
+    "description": "We design modern applications with flawless user experiences for iOS and Android platforms.",
+    "icon": "Smartphone",
+    "tags": ["iOS (Swift)", "Android (Kotlin)", "React Native"]
+  },
+  {
+    "id": "seo",
+    "title": "Web SEO Optimization",
+    "description": "We apply effective optimization strategies to rank you higher in search engines.",
+    "icon": "Search",
+    "tags": ["Technical SEO", "Content Optimization", "Speed Enhancement"]
+  },
+  {
+    "id": "maintenance",
+    "title": "Project Maintenance & Support",
+    "description": "We provide regular maintenance and technical support to keep your systems running smoothly.",
+    "icon": "ShieldCheck",
+    "tags": ["Troubleshooting", "Performance Monitoring", "Security"]
+  }
+]

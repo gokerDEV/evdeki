@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-07-27T15:43:26.280Z",
+  "publicationUrl": "https://uygulama.substack.com",
+  "tags": [
+    {
+      "id": "be717ab0-84bc-4a41-89d2-1ef5944abb31",
+      "publication_id": 10096016,
+      "name": "Haberler",
+      "slug": "haberler",
+      "hidden": false
+    },
+    {
+      "id": "f4953a0c-bf49-41f3-8d78-09e568b53668",
+      "publication_id": 10096016,
+      "name": "News",
+      "slug": "news",
+      "hidden": false
+    }
+  ]
+}

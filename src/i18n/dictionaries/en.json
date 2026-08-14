@@ -1,0 +1,96 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "loadMore": "Load more",
+    "close": "Close",
+    "back": "Back",
+    "readMore": "Read more",
+    "noImage": "No image",
+    "viewAll": "View all"
+  },
+  "post": {
+    "by": "By",
+    "publishedOn": "Published on",
+    "noPosts": "No posts found yet.",
+    "noTags": "No tags available.",
+    "home": "Home",
+    "news": "News",
+    "tags": "Tags",
+    "readOnSubstack": "Read on Substack",
+    "minRead": "min read"
+  },
+  "nav": {
+    "toggleMenu": "Toggle Menu",
+    "changeLanguage": "Change Language",
+    "getDirections": "Get directions",
+    "contactUs": "Contact Us",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "developedByPrefix": "Developed with",
+    "developedByTemplate": "uyguLama Substack template",
+    "developedBySuffix1": "",
+    "developedBySuffix2": ""
+  },
+  "posts": {
+    "title": "News & Announcements",
+    "description": "You can access all current developments, news, and announcements here."
+  },
+  "tags": {
+    "latestUpdates": "Latest updates related to the \"{tag}\" tag."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "returnHome": "Return to Home"
+  },
+  "newsCarousel": {
+    "title": "News & Announcements",
+    "description": "Stay up to date with our latest updates.",
+    "error": "The news feed cannot be loaded at the moment."
+  },
+  "hero": {
+    "badge": "Your Digital Transformation Partner",
+    "title": "Technology Solutions Shaping the Future",
+    "description": "We provide sustainable and innovative software solutions that improve your business processes. We follow and apply the developments in the technology world for you.",
+    "getDirections": "Get Directions",
+    "aboutUs": "About Us"
+  },
+  "contactForm": {
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Your First and Last Name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "example@company.com",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "+1 XXX XXX XXXX",
+    "messageLabel": "Message",
+    "messagePlaceholder": "How can we help you?",
+    "submitButton": "Submit",
+    "submittingButton": "Sending...",
+    "successMessage": "Your message was sent successfully!",
+    "errorMessage": "An error occurred, please try again."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Contact Us",
+    "description": "You can contact us for your projects and technological needs. Our team will get back to you as soon as possible.",
+    "address": "Address",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "services": {
+    "badge": "All Services",
+    "title": "Custom Solutions For Your Digital Growth"
+  },
+  "templates": {
+    "badge": "Website Solution Packages",
+    "title": "Our Ready Solutions",
+    "itemTitle": "Substack Template",
+    "itemDesc": "A website solution package that allows you to manage your content with Substack.",
+    "contactPre": "For any website needs, you can contact us from the",
+    "contactLink": "contact us",
+    "contactPost": "section."
+  }
+}

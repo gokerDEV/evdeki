@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { SubstackPost } from "@/app/actions";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+
 import { localizedPath } from "@/lib/config/site.paths";
 import type { Locale } from "@/lib/config/site.types";
 
@@ -39,10 +41,10 @@ export default function PostCard({
             <div className="text-xs text-muted-foreground whitespace-nowrap mt-1">
               {item.post_date
                 ? new Date(item.post_date).toLocaleDateString(locale, {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })
                 : ""}
             </div>
             {item.postTags && item.postTags.length > 0 && (
@@ -58,12 +60,12 @@ export default function PostCard({
               </div>
             )}
           </div>
-          <CardTitle className="text-lg leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+          <CardTitle className={cn("text-lg leading-tight line-clamp-2 group-hover:text-primary transition-colors", "font-heading")}>
             {item.title}
           </CardTitle>
         </CardHeader>
         <CardContent className="p-4 pt-0 flex-1 flex flex-col">
-          <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
+          <p className={cn("text-sm text-muted-foreground line-clamp-3 mb-4 flex-1")}>
             {item.subtitle || item.description}
           </p>
         </CardContent>

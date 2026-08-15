@@ -22,9 +22,13 @@ export default async function NewsCarousel({ locale }: { locale: Locale }) {
     const fetchedPosts = await substack.getPosts(0, 20);
     const posts =
       validTagSlugs && validTagSlugs.length > 0
-        ? fetchedPosts.filter((post) =>
-            post.postTags?.some((tag) => validTagSlugs.includes(tag.slug)),
-          )
+        ? fetchedPosts.filter((post) => {
+            const hasTags = post.postTags && post.postTags.length > 0;
+            if (!hasTags) {
+              return validTagSlugs.includes("");
+            }
+            return post.postTags?.some((tag) => validTagSlugs.includes(tag.slug));
+          })
         : fetchedPosts;
 
     if (posts.length === 0) {

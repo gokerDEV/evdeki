@@ -1,7 +1,9 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+
 import { getDictionary } from "@/i18n/get-dictionary";
 import { getResolvedSiteConfig } from "@/lib/config/site.resolver";
 import type { Locale } from "@/lib/config/site.types";
+import LocationMapWrapper from "./location-map-wrapper";
+import Web3FormsContact from "../common/web3forms-contact";
 
 export default async function ContactSection({ locale }: { locale: Locale }) {
   const config = getResolvedSiteConfig(locale);
@@ -25,75 +27,19 @@ export default async function ContactSection({ locale }: { locale: Locale }) {
               </p>
             </div>
 
-            <div className="flex flex-col gap-6">
-              {config.contact?.address && (
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full mr-4 text-primary shrink-0">
-                    <MapPin className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">
-                      {dict.contact.address}
-                    </h4>
-                    <p className="text-muted-foreground whitespace-pre-line text-sm mt-1">
-                      {config.contact.address}
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {config.contact?.email && (
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full mr-4 text-primary shrink-0">
-                    <Mail className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">
-                      {dict.contact.email}
-                    </h4>
-                    <a
-                      href={`mailto:${config.contact.email}`}
-                      className="text-muted-foreground hover:text-primary transition-colors text-sm mt-1 block"
-                    >
-                      {config.contact.email}
-                    </a>
-                  </div>
-                </div>
-              )}
-
-              {config.contact?.phone && (
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full mr-4 text-primary shrink-0">
-                    <Phone className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">
-                      {dict.contact.phone}
-                    </h4>
-                    <a
-                      href={`tel:${config.contact.phone.replace(/\s+/g, "")}`}
-                      className="text-muted-foreground hover:text-primary transition-colors text-sm mt-1 block"
-                    >
-                      {config.contact.phone}
-                    </a>
-                  </div>
-                </div>
-              )}
-            </div>
+            {/* Contact Form */}
+            <Web3FormsContact dict={dict.contactForm} />
           </div>
 
           {config.contact?.mapEmbedUrl && (
             <div className="h-[400px] md:h-full min-h-[400px] w-full rounded-2xl overflow-hidden shadow-sm border bg-muted relative">
-              <iframe
-                title="Location Map"
-                src={config.contact.mapEmbedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0"
+              <LocationMapWrapper
+                lat={41.68}
+                lng={26.55}
+                radius={2200}
+                color="olive"
+                zoom={13}
+                opacity={0.3}
               />
             </div>
           )}

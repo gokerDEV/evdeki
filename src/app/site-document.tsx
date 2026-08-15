@@ -1,4 +1,4 @@
-import { Figtree, Geist, Geist_Mono, Outfit } from "next/font/google";
+import { Gochi_Hand, Figtree } from "next/font/google";
 import "./styles/globals.css";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
@@ -7,21 +7,16 @@ import { getLocaleMeta } from "@/lib/config/site.resolver";
 import type { Locale } from "@/lib/config/site.types";
 import { cn } from "@/lib/utils";
 
-const figtreeHeading = Figtree({
+const figtree = Gochi_Hand({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: "400",
+});
+
+const gochiHand = Gochi_Hand({
   subsets: ["latin"],
   variable: "--font-heading",
-});
-
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" });
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "400",
 });
 
 export async function SiteDocument({
@@ -42,11 +37,9 @@ export async function SiteDocument({
         "h-full",
         "antialiased",
         "scroll-smooth",
-        geistSans.variable,
-        geistMono.variable,
+        figtree.variable,
+        gochiHand.variable,
         "font-sans",
-        outfit.variable,
-        figtreeHeading.variable,
       )}
     >
       <body className="min-h-full flex flex-col bg-zinc-50">

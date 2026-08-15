@@ -61,7 +61,7 @@ export async function MdxContent({
 
   if (!imagePosition || !frontmatter?.image) {
     return (
-      <div className="max-w-3xl mx-auto prose prose-neutral dark:prose-invert">
+      <div className="max-w-5xl mx-auto prose prose-neutral dark:prose-invert">
         {content}
       </div>
     );
@@ -71,7 +71,7 @@ export async function MdxContent({
     frontmatter.alt || frontmatter.title || filename.split("-")[0];
 
   return (
-    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       {imagePosition === "left" && (
         <div className="relative h-full min-h-[300px]">
           <Image

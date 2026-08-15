@@ -41,9 +41,13 @@ export default function FilteredPostList({
 
   const displayPosts =
     validTagSlugs && validTagSlugs.length > 0
-      ? posts.filter((post) =>
-          post.postTags?.some((tag) => validTagSlugs.includes(tag.slug)),
-        )
+      ? posts.filter((post) => {
+          const hasTags = post.postTags && post.postTags.length > 0;
+          if (!hasTags) {
+            return validTagSlugs.includes("");
+          }
+          return post.postTags?.some((tag) => validTagSlugs.includes(tag.slug));
+        })
       : posts;
 
   return (

@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "substackcdn.com",
       },
+      {
+        protocol: "https",
+        hostname: "substack-video.s3.amazonaws.com",
+      },
     ],
   },
 };

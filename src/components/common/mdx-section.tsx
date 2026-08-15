@@ -22,7 +22,7 @@ export default function MdxSection({
   return (
     <section
       id={id}
-      className={`container mx-auto px-4 py-16 md:py-24 ${className}`}
+      className={`mx-auto px-4 py-16 md:py-24 ${className}`}
     >
       <MdxContent filename={localizedFilename} imagePosition={imagePosition} />
     </section>

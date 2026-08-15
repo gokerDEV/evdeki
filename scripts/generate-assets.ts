@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, copyFileSync } from "node:fs";
 import { join } from "node:path";
 import sharp from "sharp";
 
@@ -13,7 +13,7 @@ async function generateAssets() {
     mkdirSync(PUBLIC_DIR, { recursive: true });
   }
 
-  const assetMapping = [
+  const assetMapping: { src: string; dest: string; size?: number; width?: number; height?: number; copyOnly?: boolean }[] = [
     { src: "favicon.svg", dest: "favicon.ico", size: 32 },
     { src: "icon.svg", dest: "icon.png", size: 512 },
     { src: "icon.svg", dest: "apple-icon.png", size: 180 },
@@ -23,6 +23,8 @@ async function generateAssets() {
       width: 1200,
       height: 630,
     },
+    { src: "logo.svg", dest: "logo.svg", copyOnly: true },
+    { src: "logotype.svg", dest: "logotype.svg", copyOnly: true },
   ];
 
   for (const asset of assetMapping) {
@@ -31,7 +33,9 @@ async function generateAssets() {
 
     if (existsSync(srcPath)) {
       try {
-        if (asset.width && asset.height) {
+        if (asset.copyOnly) {
+          copyFileSync(srcPath, destPath);
+        } else if (asset.width && asset.height) {
           await sharp(srcPath)
             .resize(asset.width, asset.height, {
               fit: "contain",

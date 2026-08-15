@@ -13,6 +13,7 @@ import {
 } from "@/lib/config/site.resolver";
 import type { Locale } from "@/lib/config/site.types";
 import { cn } from "@/lib/utils";
+import LanguageSwitcher from "./language-switcher";
 
 export default function Header({
   locale,
@@ -98,11 +99,11 @@ export default function Header({
             className="flex items-center space-x-2"
           >
             {/* biome-ignore lint/performance/noImgElement: SVG optimization not needed */}
-            <img
+            {/* <img
               src="/logo.svg"
               alt={config.content.siteName}
               className="h-10 w-auto"
-            />
+            /> */}
             {/* biome-ignore lint/performance/noImgElement: SVG optimization not needed */}
             <img
               src="/logotype.svg"
@@ -119,7 +120,7 @@ export default function Header({
                   key={item.label}
                   href={href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-foreground relative",
+                    "text-lg font-medium transition-colors hover:text-foreground relative",
                     activeSection === item.href
                       ? "text-foreground font-semibold"
                       : "text-foreground/60",
@@ -135,24 +136,8 @@ export default function Header({
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <div className="flex items-center gap-1 bg-muted/30 rounded-full p-1 border border-muted-foreground/20 backdrop-blur-sm">
-              {locales.map((loc) => (
-                <button
-                  key={loc}
-                  onClick={() => handleLanguageChange(loc)}
-                  type="button"
-                  className={cn(
-                    "px-3 py-1.5 text-xs font-semibold rounded-full transition-all uppercase",
-                    locale === loc
-                      ? "bg-background text-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-foreground",
-                  )}
-                >
-                  {loc}
-                </button>
-              ))}
-            </div>
-            <Button asChild className="rounded-full px-6">
+            <LanguageSwitcher locale={locale} />
+            <Button asChild className="rounded-full px-6 text-base">
               <Link href={getHref("#contact")}>{dict.contactUs}</Link>
             </Button>
           </div>
@@ -228,31 +213,12 @@ export default function Header({
                 </Link>
               ))}
 
-              <div className="py-2 border-b border-muted/50 last:border-0 flex items-center justify-between">
-                <span className="text-base font-medium text-foreground/80">
-                  {dict.changeLanguage || "Language"}
-                </span>
-                <div className="flex items-center gap-1 bg-muted/50 rounded-full p-1 border border-muted-foreground/20">
-                  {locales.map((loc) => (
-                    <button
-                      key={loc}
-                      onClick={() => {
-                        handleLanguageChange(loc);
-                        setIsOpen(false);
-                      }}
-                      type="button"
-                      className={cn(
-                        "px-3 py-1.5 text-xs font-semibold rounded-full transition-all uppercase",
-                        locale === loc
-                          ? "bg-background text-foreground shadow-sm"
-                          : "text-muted-foreground hover:text-foreground",
-                      )}
-                    >
-                      {loc}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <LanguageSwitcher
+                locale={locale}
+                isMobile={true}
+                dict={dict}
+                onLanguageChange={() => setIsOpen(false)}
+              />
             </nav>
 
             <div className="mt-6">

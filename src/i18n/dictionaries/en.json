@@ -35,7 +35,7 @@
     "developedBySuffix2": ""
   },
   "posts": {
-    "title": "News & Announcements",
+    "title": "Posts",
     "description": "You can access all current developments, news, and announcements here."
   },
   "tags": {
@@ -47,9 +47,9 @@
     "returnHome": "Return to Home"
   },
   "newsCarousel": {
-    "title": "News & Announcements",
+    "title": "Posts",
     "description": "Stay up to date with our latest updates.",
-    "error": "The news feed cannot be loaded at the moment."
+    "error": "The posts feed cannot be loaded at the moment."
   },
   "hero": {
     "badge": "Your Digital Transformation Partner",

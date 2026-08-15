@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-07-27T15:43:26.280Z",
-  "publicationUrl": "https://uygulama.substack.com",
+  "generatedAt": "2026-08-14T21:36:17.302Z",
+  "publicationUrl": "https://evdeki.substack.com",
   "tags": [
     {
-      "id": "be717ab0-84bc-4a41-89d2-1ef5944abb31",
-      "publication_id": 10096016,
-      "name": "Haberler",
-      "slug": "haberler",
+      "id": "62e9ecbc-e3aa-4559-975d-6b8eeb880327",
+      "publication_id": 10433245,
+      "name": "Garden",
+      "slug": "garden",
       "hidden": false
     },
     {
-      "id": "f4953a0c-bf49-41f3-8d78-09e568b53668",
-      "publication_id": 10096016,
-      "name": "News",
-      "slug": "news",
+      "id": "5abe9b98-e815-4259-9533-4b0af002ce13",
+      "publication_id": 10433245,
+      "name": "Recipes",
+      "slug": "recipes",
       "hidden": false
     }
   ]

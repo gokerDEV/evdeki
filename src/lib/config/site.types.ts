@@ -1,4 +1,4 @@
-export type Locale = "tr" | "en" | "de";
+export type Locale = "tr" | "en";
 
 export interface LocaleMeta {
   enabled: boolean;

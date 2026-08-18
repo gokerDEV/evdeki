@@ -93,7 +93,7 @@ jobs:
             --retry-all-errors \
             --connect-timeout 10 \
             --max-time 30 \
-            -X POST "$DEPLOY_URL/deploy" \
+            -X POST "$DEPLOY_URL" \
             -H "Content-Type: application/json" \
             -H "X-Evdeki-Signature: sha256=$SIGNATURE" \
             --data-binary "$BODY"

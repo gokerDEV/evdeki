@@ -42,29 +42,20 @@ jobs:
         run: |
           set -Eeuo pipefail
 
-          PACKAGE_DIR=".deploy/package"
-          ARCHIVE=".deploy/release.tar.gz"
+          mkdir -p deploy/.next
 
-          mkdir -p "$PACKAGE_DIR/.next"
+          cp -r .next/standalone/. deploy/
+          cp -r public deploy/public
+          cp -r .next/static deploy/.next/static
+          cp pm2.config.cjs deploy/pm2.config.cjs
 
-          cp -a .next/standalone/. "$PACKAGE_DIR/"
-          cp -a .next/static "$PACKAGE_DIR/.next/static"
-          if [ -d public ]; then
-            cp -a public "$PACKAGE_DIR/public"
-          fi
-          cp pm2.config.cjs "$PACKAGE_DIR/pm2.config.cjs"
-
-          test -f "$PACKAGE_DIR/server.js"
-          test -d "$PACKAGE_DIR/.next/static"
-          test -d "$PACKAGE_DIR/node_modules"
-
-          tar -C "$PACKAGE_DIR" -czf "$ARCHIVE" .
+          tar -C deploy -czf release.tar.gz .
 
       - name: Upload deployment artifact
         uses: actions/upload-artifact@v5
         with:
           name: ${{ env.APP_NAME }}-${{ github.sha }}
-          path: .deploy/release.tar.gz
+          path: release.tar.gz
           retention-days: 7
           if-no-files-found: error
 

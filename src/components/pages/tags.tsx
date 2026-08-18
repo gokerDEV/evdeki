@@ -27,7 +27,7 @@ export async function TagsPage({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="flex-1 max-w-7xl mx-auto w-full px-6 md:px-16 pt-32 pb-16">
+    <div className="flex-1 max-w-7xl mx-auto w-full px-6 md:px-16 pt-16 pb-16">
       <Breadcrumb className="mb-8 px-4">
         <BreadcrumbList>
           <BreadcrumbItem>

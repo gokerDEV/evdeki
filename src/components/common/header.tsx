@@ -27,9 +27,9 @@ export default function Header({
   const config = getResolvedSiteConfig(locale);
   const router = useRouter();
   const pathname = usePathname();
-  const locales = getSupportedLocales();
+  const _locales = getSupportedLocales();
 
-  const handleLanguageChange = (newLocale: string) => {
+  const _handleLanguageChange = (newLocale: string) => {
     if (newLocale === locale) return;
 
     let basePath = pathname;
@@ -88,22 +88,12 @@ export default function Header({
 
   return (
     <>
-      <div className="fixed top-14 left-0 w-full h-[1px] bg-border/60 z-40" />
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl h-14 z-30 pointer-events-none backdrop-blur-md" />
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl border-l border-r h-14 z-30 pointer-events-none bg-gradient-to-b from-background/90 to-transparent" />
-
       <header className="fixed top-6 left-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-xl border bg-background/80 backdrop-blur-md px-4 py-3 shadow-sm transition-all">
         <div className="flex items-center justify-between">
           <Link
             href={localizedPath(locale, "/")}
             className="flex items-center space-x-2"
           >
-            {/* biome-ignore lint/performance/noImgElement: SVG optimization not needed */}
-            {/* <img
-              src="/logo.svg"
-              alt={config.content.siteName}
-              className="h-10 w-auto"
-            /> */}
             {/* biome-ignore lint/performance/noImgElement: SVG optimization not needed */}
             <img
               src="/logotype.svg"

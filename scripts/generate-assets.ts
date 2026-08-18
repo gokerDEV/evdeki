@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, copyFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import sharp from "sharp";
 
@@ -13,7 +13,14 @@ async function generateAssets() {
     mkdirSync(PUBLIC_DIR, { recursive: true });
   }
 
-  const assetMapping: { src: string; dest: string; size?: number; width?: number; height?: number; copyOnly?: boolean }[] = [
+  const assetMapping: {
+    src: string;
+    dest: string;
+    size?: number;
+    width?: number;
+    height?: number;
+    copyOnly?: boolean;
+  }[] = [
     { src: "favicon.svg", dest: "favicon.ico", size: 32 },
     { src: "icon.svg", dest: "icon.png", size: 512 },
     { src: "icon.svg", dest: "apple-icon.png", size: 180 },

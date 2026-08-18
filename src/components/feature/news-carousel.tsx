@@ -27,7 +27,9 @@ export default async function NewsCarousel({ locale }: { locale: Locale }) {
             if (!hasTags) {
               return validTagSlugs.includes("");
             }
-            return post.postTags?.some((tag) => validTagSlugs.includes(tag.slug));
+            return post.postTags?.some((tag) =>
+              validTagSlugs.includes(tag.slug),
+            );
           })
         : fetchedPosts;
 
@@ -36,7 +38,7 @@ export default async function NewsCarousel({ locale }: { locale: Locale }) {
     }
 
     return (
-      <section className="px-4 py-12 md:py-16 bg-zinc-50 shadow-inner border-y">
+      <section className="px-4 py-12 md:py-16 bg-zinc-50  border-b">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-end mb-8 px-4 md:px-12">
             <div>

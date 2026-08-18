@@ -1,4 +1,4 @@
-import { Gochi_Hand, Figtree } from "next/font/google";
+import { Gochi_Hand } from "next/font/google";
 import "./styles/globals.css";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
@@ -49,8 +49,12 @@ export async function SiteDocument({
           </div>
 
           <div className="relative z-10 flex flex-col min-h-screen">
+            <div className="fixed top-14 left-0 w-full h-[1px] bg-border/60 z-40 shadow" />
+            <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl h-14 z-30 pointer-events-none backdrop-blur-md" />
+            <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl border-l border-r h-14 z-30 pointer-events-none bg-gradient-to-b from-background/90 to-transparent" />
+
             <Header locale={locale} dict={dict.nav} />
-            <main className="flex-1 w-full">{children}</main>
+            <main className="grow w-full mt-13">{children}</main>
             <Footer locale={locale} />
           </div>
         </div>

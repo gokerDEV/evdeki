@@ -3,10 +3,26 @@
 import Image from "next/image";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { RecipeCard, type RecipeData } from "@/components/feature/recipe-card";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 interface SubstackContentProps {
   html: string;
+}
+
+function RecipePortal({
+  target,
+  data,
+}: {
+  target: HTMLElement;
+  data: RecipeData;
+}) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+  return createPortal(<RecipeCard data={data} />, target);
 }
 
 export default function SubstackContent({ html }: SubstackContentProps) {
@@ -50,6 +66,27 @@ export default function SubstackContent({ html }: SubstackContentProps) {
         // biome-ignore lint/security/noDangerouslySetInnerHtml: We render pure HTML from substack API.
         dangerouslySetInnerHTML={{ __html: html }}
       />
+
+      {/* Render Recipe Cards */}
+      {typeof window !== "undefined" &&
+        Array.from(document.querySelectorAll(".recipe-embed")).map((el, i) => {
+          const base64 = el.getAttribute("data-recipe-base64");
+          if (!base64) return null;
+          try {
+            const data = JSON.parse(atob(base64));
+            // Render via portal or just append. In a purely React approach we'd use a portal,
+            // but since this is injected HTML, let's use a React portal to the element.
+            return (
+              <RecipePortal
+                key={data.recipe?.id ?? i}
+                target={el as HTMLElement}
+                data={data}
+              />
+            );
+          } catch (_e) {
+            return null;
+          }
+        })}
 
       <Dialog
         open={!!selectedImage}

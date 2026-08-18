@@ -48,14 +48,8 @@
         }
       },
       "tags": {
-        "tr": [
-          "haberler"
-        ],
-        "en": [
-          "",
-          "garden",
-          "recipes"
-        ]
+        "tr": ["haberler"],
+        "en": ["", "garden", "recipes"]
       }
     }
   },

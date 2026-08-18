@@ -1,16 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
-import { MapContainer, TileLayer, Circle } from "react-leaflet";
+import { Circle, MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 // Fix for default leaflet icons in next.js
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+delete (L.Icon.Default.prototype as unknown as { _getIconUrl?: string })
+  ._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
-  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+  iconRetinaUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+  iconUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  shadowUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 
 interface LocationMapProps {
@@ -28,7 +31,7 @@ export default function LocationMap({
   radius = 1300,
   zoom = 13,
   color = "hsl(var(--primary))",
-  opacity = 0.2
+  opacity = 0.2,
 }: LocationMapProps) {
   const position: [number, number] = [lat, lng];
 

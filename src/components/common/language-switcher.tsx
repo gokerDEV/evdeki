@@ -1,11 +1,11 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { localizedPath } from "@/lib/config/site.paths";
-import type { Locale } from "@/lib/config/site.types";
-import { getSupportedLocales } from "@/lib/config/site.resolver";
 import siteData from "@/data/site.json";
+import { localizedPath } from "@/lib/config/site.paths";
+import { getSupportedLocales } from "@/lib/config/site.resolver";
+import type { Locale } from "@/lib/config/site.types";
+import { cn } from "@/lib/utils";
 
 interface LanguageSwitcherProps {
   locale: Locale;
@@ -25,10 +25,15 @@ export default function LanguageSwitcher({
   const router = useRouter();
   const pathname = usePathname();
   const allLocales = getSupportedLocales();
-  
+
   // Filter only enabled locales
   const enabledLocales = allLocales.filter(
-    (loc) => (siteData as any).i18n.locales[loc]?.enabled !== false
+    (loc) =>
+      (
+        siteData as unknown as {
+          i18n: { locales: Record<string, { enabled?: boolean }> };
+        }
+      ).i18n.locales[loc]?.enabled !== false,
   );
 
   if (enabledLocales.length <= 1) {
@@ -54,7 +59,12 @@ export default function LanguageSwitcher({
 
   if (isMobile) {
     return (
-      <div className={cn("py-2 border-b border-muted/50 last:border-0 flex items-center justify-between", className)}>
+      <div
+        className={cn(
+          "py-2 border-b border-muted/50 last:border-0 flex items-center justify-between",
+          className,
+        )}
+      >
         <span className="text-base font-medium text-foreground/80">
           {dict?.changeLanguage || "Language"}
         </span>
@@ -80,7 +90,12 @@ export default function LanguageSwitcher({
   }
 
   return (
-    <div className={cn("flex items-center gap-1 bg-muted/30 rounded-full p-1 border border-muted-foreground/20 backdrop-blur-sm", className)}>
+    <div
+      className={cn(
+        "flex items-center gap-1 bg-muted/30 rounded-full p-1 border border-muted-foreground/20 backdrop-blur-sm",
+        className,
+      )}
+    >
       {enabledLocales.map((loc) => (
         <button
           key={loc}

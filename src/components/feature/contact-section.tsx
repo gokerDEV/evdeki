@@ -1,9 +1,8 @@
-
 import { getDictionary } from "@/i18n/get-dictionary";
 import { getResolvedSiteConfig } from "@/lib/config/site.resolver";
 import type { Locale } from "@/lib/config/site.types";
-import LocationMapWrapper from "./location-map-wrapper";
 import Web3FormsContact from "../common/web3forms-contact";
+import LocationMapWrapper from "./location-map-wrapper";
 
 export default async function ContactSection({ locale }: { locale: Locale }) {
   const config = getResolvedSiteConfig(locale);

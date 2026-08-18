@@ -28,6 +28,14 @@ export interface Post extends PostSummary {
   social_title: string;
   search_engine_title: string;
   search_engine_description: string;
+  videoUpload?: {
+    id: string;
+    mux_playback_id: string;
+    duration: number;
+    height: number;
+    width: number;
+    media_type: string;
+  };
 }
 
 export interface Section {
@@ -99,8 +107,62 @@ class SubstackAPI implements SubStack {
         return null;
       }
 
-      const data = await res.json();
-      return data as Post;
+      const data = (await res.json()) as Post;
+
+      // Extract recipes and replace their tags with JSON payload placeholder
+      if (data.body_html) {
+        const recipeRegex =
+          /<div[^>]*class="recipe-embed"[^>]*data-attrs="([^"]+)"[^>]*>.*?<\/div>/g;
+        // Collect all replacements to run concurrently
+        const replacements: { search: string; replacement: string }[] = [];
+
+        // Note: we can't do async inside replace, so we collect and then replace
+        const promises = [];
+        const matches = [...data.body_html.matchAll(recipeRegex)];
+
+        for (const m of matches) {
+          const matchedStr = m[0];
+          const decoded = m[1]
+            .replace(/&quot;/g, '"')
+            .replace(/&#34;/g, '"')
+            .replace(/&amp;/g, "&")
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">");
+
+          try {
+            const attrData = JSON.parse(decoded);
+            if (attrData?.id) {
+              const p = fetch(`${this.baseUrl}/api/v1/recipe/${attrData.id}`)
+                .then(async (recipeRes) => {
+                  if (recipeRes.ok) {
+                    const recipeData = await recipeRes.json();
+                    const encodedRecipe = Buffer.from(
+                      JSON.stringify(recipeData),
+                    ).toString("base64");
+                    replacements.push({
+                      search: matchedStr,
+                      replacement: `<div class="recipe-embed" data-recipe-base64="${encodedRecipe}"></div>`,
+                    });
+                  }
+                })
+                .catch((err) => {
+                  console.error("Failed to fetch recipe", attrData.id, err);
+                });
+              promises.push(p);
+            }
+          } catch (e) {
+            console.error("Failed to parse recipe attributes", e);
+          }
+        }
+
+        await Promise.all(promises);
+
+        for (const rep of replacements) {
+          data.body_html = data.body_html.replace(rep.search, rep.replacement);
+        }
+      }
+
+      return data;
     } catch (error) {
       console.error(`Error fetching post ${slug}:`, error);
       return null;

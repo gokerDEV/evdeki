@@ -52,6 +52,7 @@ jobs:
           if [ -d public ]; then
             cp -a public "$PACKAGE_DIR/public"
           fi
+          cp pm2.config.cjs "$PACKAGE_DIR/pm2.config.cjs"
 
           test -f "$PACKAGE_DIR/server.js"
           test -d "$PACKAGE_DIR/.next/static"

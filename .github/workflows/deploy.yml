@@ -12,6 +12,7 @@ concurrency:
 
 permissions:
   contents: read
+  actions: read
 
 env:
   APP_NAME: evdeki
@@ -24,12 +25,22 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v2.2.0
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Restore Bun and Next.js build cache
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/.bun/install/cache
+            .next/cache
+          key: ${{ runner.os }}-bun-${{ env.BUN_VERSION }}-next-${{ hashFiles('bun.lock', 'next.config.*', 'package.json', 'src/**/*') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-${{ env.BUN_VERSION }}-next-
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
@@ -37,29 +48,43 @@ jobs:
       - name: Build Next.js application
         run: bun run build
 
-      - name: Create deployment package
+      - name: Create standalone artifact
         shell: bash
         run: |
           set -Eeuo pipefail
 
-          mkdir -p deploy/.next
+          PACKAGE_DIR=".deploy/package"
+          ARCHIVE=".deploy/release.tar.gz"
 
-          cp -r .next/standalone/. deploy/
-          cp -r public deploy/public
-          cp -r .next/static deploy/.next/static
-          cp pm2.config.cjs deploy/pm2.config.cjs
+          rm -rf .deploy
+          mkdir -p "$PACKAGE_DIR/.next"
 
-          tar -C deploy -czf release.tar.gz .
+          cp -r .next/standalone/. "$PACKAGE_DIR/"
+          cp -r .next/static "$PACKAGE_DIR/.next/static"
+          cp -r public "$PACKAGE_DIR/public"
+          cp pm2.config.cjs "$PACKAGE_DIR/pm2.config.cjs"
 
-      - name: Upload deployment artifact
-        uses: actions/upload-artifact@v5
+          test -f "$PACKAGE_DIR/server.js"
+          test -f "$PACKAGE_DIR/package.json"
+          test -f "$PACKAGE_DIR/pm2.config.cjs"
+          test -f "$PACKAGE_DIR/.next/BUILD_ID"
+          test -d "$PACKAGE_DIR/node_modules"
+          test -d "$PACKAGE_DIR/.next/server"
+          test -d "$PACKAGE_DIR/.next/static"
+          test -d "$PACKAGE_DIR/public"
+
+          tar -C "$PACKAGE_DIR" -czf "$ARCHIVE" .
+
+      - name: Upload standalone artifact
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ env.APP_NAME }}-${{ github.sha }}
-          path: release.tar.gz
+          path: .deploy/release.tar.gz
           retention-days: 7
           if-no-files-found: error
+          compression-level: 0
 
-      - name: Trigger evdeki deploy hook
+      - name: Trigger deployment
         shell: bash
         env:
           DEPLOY_URL: ${{ vars.EVDEKI_DEPLOY_URL }}

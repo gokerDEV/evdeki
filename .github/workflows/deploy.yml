@@ -19,6 +19,7 @@ env:
 
 jobs:
   build-and-trigger:
+    environment: evdeki
     runs-on: ubuntu-latest
 
     steps:
@@ -62,7 +63,7 @@ jobs:
       - name: Trigger evdeki deploy hook
         shell: bash
         env:
-          DEPLOY_URL: ${{ secrets.EVDEKI_DEPLOY_URL }}
+          DEPLOY_URL: ${{ vars.EVDEKI_DEPLOY_URL }}
           DEPLOY_SECRET: ${{ secrets.EVDEKI_DEPLOY_SECRET }}
           ARTIFACT_NAME: ${{ env.APP_NAME }}-${{ github.sha }}
         run: |

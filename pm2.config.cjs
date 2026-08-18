@@ -4,7 +4,7 @@ module.exports = {
       name: "evdeki",
       cwd: "/srv/apps/evdeki/current",
       script: "/home/goker/.bun/bin/bun",
-      args: "run start",
+      args: "server.js",
       interpreter: "none",
 
       env: {

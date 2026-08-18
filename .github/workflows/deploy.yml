@@ -41,24 +41,21 @@ jobs:
         shell: bash
         run: |
           set -Eeuo pipefail
-                
+
           PACKAGE_DIR=".deploy/package"
           ARCHIVE=".deploy/release.tar.gz"
 
-          mkdir -p "$PACKAGE_DIR"
+          mkdir -p "$PACKAGE_DIR/.next"
 
-          git archive HEAD | tar -x -C "$PACKAGE_DIR"
+          cp -a .next/standalone/. "$PACKAGE_DIR/"
+          cp -a .next/static "$PACKAGE_DIR/.next/static"
+          if [ -d public ]; then
+            cp -a public "$PACKAGE_DIR/public"
+          fi
 
-          tar \
-          --exclude='.next/cache' \
-          -cf - \
-          .next \
-          | tar -xf - -C "$PACKAGE_DIR"
-
-          test ! -e "$PACKAGE_DIR/.next/cache"
-          test -f "$PACKAGE_DIR/.next/BUILD_ID"
-          test -d "$PACKAGE_DIR/.next/server"
+          test -f "$PACKAGE_DIR/server.js"
           test -d "$PACKAGE_DIR/.next/static"
+          test -d "$PACKAGE_DIR/node_modules"
 
           tar -C "$PACKAGE_DIR" -czf "$ARCHIVE" .
 

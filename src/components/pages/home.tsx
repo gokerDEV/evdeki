@@ -15,7 +15,6 @@ export function HomePage({ locale }: { locale: Locale }) {
         imagePosition="left"
         locale={locale}
       /> */}
-
       <MdxSection
         className="bg-muted/10"
         id="about"
@@ -23,9 +22,6 @@ export function HomePage({ locale }: { locale: Locale }) {
         locale={locale}
         imagePosition="left"
       />
-
-      {/* <TemplatesSection locale={locale} /> */}
-      {/* <ServicesSection locale={locale} /> */}
       <ContactSection locale={locale} />
     </>
   );

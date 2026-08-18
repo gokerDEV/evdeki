@@ -1,7 +1,7 @@
 import { PostsPage } from "@/components/pages/posts";
 import { requireSecondaryLocale } from "@/lib/config/site.resolver";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export default async function Page({
   params,

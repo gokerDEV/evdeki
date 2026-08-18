@@ -1,6 +1,8 @@
 import { TagsPage } from "@/components/pages/tags";
 import type { Locale } from "@/lib/config/site.types";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page({
   params,
 }: {

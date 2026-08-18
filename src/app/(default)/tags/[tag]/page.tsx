@@ -1,7 +1,7 @@
 import { TagPage } from "@/components/pages/tag";
 import { defaultLocale } from "@/lib/config/site.resolver";
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 export default async function Page({
   params,

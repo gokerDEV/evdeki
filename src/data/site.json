@@ -28,7 +28,7 @@
     "web3formsAccessKey": "a51fce86-3922-40f5-8802-65245c18d2f7",
     "socials": {
       "twitter": "https://twitter.com/evdekisi",
-      "instagram": "https://instagram.com/evdekisi",
+      "instagram": "https://instagram.com/ev.de.ki",
       "youtube": "https://youtube.com/evdekisi",
       "substack": "https://evdeki.substack.com"
     },
@@ -48,8 +48,14 @@
         }
       },
       "tags": {
-        "tr": ["haberler"],
-        "en": ["", "garden", "recipes"]
+        "tr": [
+          "haberler"
+        ],
+        "en": [
+          "",
+          "garden",
+          "recipes"
+        ]
       }
     }
   },

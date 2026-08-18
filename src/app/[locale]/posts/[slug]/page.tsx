@@ -7,7 +7,7 @@ import {
 } from "@/lib/config/site.resolver";
 import { substack } from "@/lib/substack";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
